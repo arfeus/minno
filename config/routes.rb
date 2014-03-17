@@ -37,10 +37,7 @@ Merseri::Application.routes.draw do
   match '/contact',                   to: 'welcome#contact',           via: 'get'
   match '/newuser',                   to: 'welcome#newuser',           via: 'get', as: 'newuser'
   match '/welcome',                   to: 'welcome#welcome',           via: 'get', as: 'welcome'
-  match '/time',                      to: 'welcome#time',              via: 'get', as: 'time'
-  match '/diary',                     to: 'welcome#diary',             via: 'get', as: 'diary'
-  match '/netcommunity',              to: 'welcome#netcommunity',      via: 'get', as: 'netcommunity'
-  match '/inventory',                 to: 'welcome#inventory',         via: 'get', as: 'inventory'
+
   
   match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
   match '/users/:id/admin_off',  to: 'users#admin_off',   via: 'get', as: 'admin_off'
