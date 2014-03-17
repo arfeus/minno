@@ -29,7 +29,7 @@ Merseri::Application.routes.draw do
   match '/printing/add_collection',   to: 'printing#add_collection',   via: 'get', as: 'add_collection'
   match '/printing/print_collection', to: 'printing#print_collection', via: 'get', as: 'print_collection' 
   match '/printing/print_all',        to: 'printing#print_all',        via: 'get', as: 'print_all'
-  match '/printing/collection_email',      to: 'printing#collection_email',      via: 'get', as: 'collection_email'
+  match '/printing/collection_email', to: 'printing#collection_email',      via: 'get', as: 'collection_email'
   match '/printing/remove_collection',   to: 'printing#remove_collection',   via: 'get', as: 'remove_collection'
  # static pages 
   match '/help',                      to: 'welcome#help',              via: 'get', as: 'help'
