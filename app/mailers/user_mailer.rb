@@ -3,14 +3,14 @@ class UserMailer < ActionMailer::Base
   
   def welcome_email(user)
     @user = user
-    @url  = 'https://merseri.herokuapp.com/'
-    mail(to: @user.email, subject: 'Welcome to use merseri')
+    @url  = 'https://minno.herokuapp.com/'
+    mail(to: @user.email, subject: 'Welcome to use minno')
   end
   
   def collection_email(mers, user)
     @user = user
     @mers = mers
-    @url  = 'https://merseri.herokuapp.com/'
+    @url  = 'https://minno.herokuapp.com/'
     mail(to: @user.email, subject: 'Collection')
   end
   
