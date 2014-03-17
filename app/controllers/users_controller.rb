@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.welcome_email(@user).deliver
       sign_in @user
-      flash[:notice] = "Welcome, you are now user of merseri!"
+      flash[:notice] = "Welcome, you are now user of minno!"
       redirect_to newuser_path
     else
       render 'new'
