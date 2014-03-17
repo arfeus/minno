@@ -1,0 +1,71 @@
+// import the CSS framework
+@import "bootstrap";
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
+
+
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #DBE9E9;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 10px;
+  }
+
+
+
+
+/* footer */
+
+#footer {
+  border-top: 1px solid gray;
+  color: gray;
+  text-align: left;
+  a {
+    color: gray;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+
+
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid gray;
+      &:last-child {
+      border-bottom: 1px solid gray;
+    }
+  }
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 80%;
+  margin-top: 50px;
+}
+  
+  
+

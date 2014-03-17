@@ -1,0 +1,11 @@
+<h1>Printing#printAll</h1>
+<h2>Show all ideas</h2>
+<div="mers">
+<hr />
+<% @mers.each do |mer| %>
+    <%= link_to mer.title, mer %>
+    <%= simple_format(mer.text) %>
+<hr />	
+<% end %>
+</div>
+

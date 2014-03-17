@@ -1,0 +1,11 @@
+== README
+
+Merseri – dynamite notes - Catch your thoughts!
+
+It helps people to record, recall and share small things that matter most.
+
+* Ruby version 2.0.0.
+
+* Database Postgre93 9.3.1.0 (18)
+
+* ...

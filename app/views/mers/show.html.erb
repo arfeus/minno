@@ -1,0 +1,14 @@
+<% provide(:title, 'Idea') %>
+<div class="container">
+  <h1>Idea:</h1>
+
+  <%= render 'show_mer' %>	
+
+	<h3><%= pluralize(@mer.comments.count, "comment") %></h3>
+	<%= render 'comments/show_comment' %>
+	<%= render 'comments/comment_form' %>
+	
+  to be removed
+<%= link_to('vote down for this post!', vote_down_mer_path(@mer), :method => :put) %>
+</div>
+

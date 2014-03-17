@@ -1,0 +1,131 @@
+<li class="dropdown" role="menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>			  
+<ul class="dropdown-menu">				
+  <li role="presentation"><%= link_to "Profile", current_user, role: "menuitem", tabindex: "-1"  %></li>		     
+  <li role="presentation"><%= link_to "Settings", edit_user_path(current_user), role: "menuitem", tabindex: "-1" %></li>
+  <li role="presentation" class="divider"></li>
+  <li role="presentation"><%= link_to "Sign out", signout_path, method: "delete", role: "menuitem", tabindex: "-1" %></li>
+</ul>
+</li>
+
+
+
+<div class="navbar navbar-fluid-top" role="navigation">
+  <div class="navbar-inner">
+  	<div class="container-fluid">
+	<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+	  <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+      	 <span class="icon-bar"></span>
+		 <span class="icon-bar"></span>
+		 <span class="icon-bar"></span>
+	  </a>
+	  <!-- Be sure to leave the brand out there if you want it shown -->
+	  <%= link_to "merseri", root_path, class: "brand" %>
+	  <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <ul class="nav">		  
+		  <% if signed_in? %>
+		  	<li><%= link_to 'New idea', new_mer_path %></li>
+          	<li><%= link_to 'Ideas', mers_path  %></li>
+		  	<li><%= link_to 'Show idea collection', printCollection_path %></li>
+		    <li><%= link_to "Users", users_path %></li>
+		    <li id="fat-menu" class="dropdown">
+		      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		        Account <b class="caret"></b>
+		      </a>
+		    <ul class="dropdown-menu">
+		      <li><%= link_to "Profile", current_user %></li>
+		      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+		      <li class="divider"></li>
+		      <li><%= link_to "Sign out", signout_path, method: "delete" %>
+		      </li>
+		    </ul>
+		    </li>
+		  <% else %>
+		  	<li><%= link_to "Sign in", signin_path %></li>
+		  <% end %>			  
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Merseri" %></title>
+    <%= csrf_meta_tags %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+		  <%= link_to "merseri", root_path, class: "brand" %>
+          <div class="container-fluid nav-collapse">
+            <ul class="nav">
+			  <li><%= link_to 'New note', new_mer_path %></li>
+              <li><%= link_to 'Notes', mers_path  %></li>
+			  <li><%= link_to 'Show collection', printCollection_path %></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+
+        <div class="span9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+
+      <footer>
+        <p> </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

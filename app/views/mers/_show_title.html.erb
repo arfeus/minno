@@ -1,0 +1,17 @@
+<br  />
+<div class="panel panel-primary">
+	<div class="panel-heading">by <%= @user.name %>, created on <%= @mer.created_at.localtime.to_formatted_s(:rfc822) %></div>
+  <div class="panel-body panel-primary">
+    <div class="well">
+		  <%= @mer.title %>
+		</div>
+    <div class="panel-footer">
+		  <%= link_to vote_up_mer_path(@mer), method: :put, class: "btn btn-default btn-md" do %>
+	  	  <span class="glyphicon glyphicon-thumbs-up"></span>
+      <% end %>
+	    | <%= link_to 'Show', mer_path(@mer) %>
+	    | This idea has <%= pluralize(@mer.vote, "vote") %>	
+	    and <%= pluralize(@mer.comments.count, "comment") %>  
+    </div>
+  </div>
+</div>

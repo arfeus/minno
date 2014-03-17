@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">by <%= @user.name %>, created on <%= @mer.created_at.localtime.to_formatted_s(:rfc822) %></div>
+  <div class="panel-body panel-primary">
+    <div class="well">
+			<%= @mer.title %>
+		</div>
+    <div class="well">
+			<%= @mer.text %>
+		</div>
+    <div class="well">
+			<%= raw @mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+		</div>
+  </div>	
+  <div class="panel-footer">
+		<%= link_to vote_up_mer_path(@mer), method: :put, class: "btn btn-default btn-md" do %>
+		    <span class="glyphicon glyphicon-thumbs-up"></span>
+		<% end %>
+		| <%= link_to 'Add to collection', add_collection_path(:id => @mer.id) %>
+		<% if !current_page?(mer_path(@mer)) %>| <%= link_to 'Show', mer_path(@mer) %><% end %>
+		<% if current_user == @user && current_page?(mer_path(@mer)) %>| <%= link_to 'Edit', edit_mer_path(@mer) %><% end %>
+	  <% if current_user.admin || current_user.id == @mer.user_id %>| <%= link_to 'Delete', mer_path(@mer),
+			  	method: :delete, data: { Confirm: 'Are you sure???' }%><% end %>
+		| This idea has <%= pluralize(@mer.vote, "vote") %>	
+		and <%= pluralize(@mer.comments.count, "comment") %>	  	
+	</div>
+</div>
+	

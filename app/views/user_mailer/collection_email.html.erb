@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.name %>,</h1>
+    <p>
+      Please find your collection below:
+    </p>
+		<ul>
+		  <% @mers.each do |mer| %>
+			  <% @mer = mer %>
+				<li><%= @mer.title %></li> <br  />
+				<br  />
+		  <% end %>
+    </ul>
+
+    <p>Thanks for using merseri!</p>
+  </body>
+</html>

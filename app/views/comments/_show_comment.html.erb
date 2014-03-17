@@ -1,0 +1,14 @@
+<% @mer.comments.each do |comment| %>
+  <div class="panel panel-info">
+	  <div class="panel-heading"><%= comment.commenter %>,  <%= comment.created_at.localtime.to_formatted_s(:rfc822) %></div>
+    <div class="panel-body panel-primary">
+      <div class="well">
+		  	<%= comment.body %>	
+		  </div>
+    </div>
+    <div class="panel-footer">
+	  	<% if current_user.name == comment.commenter %><%= link_to 'Edit comment', edit_mer_comment_path(comment.mer, comment) %> | <% end %>
+	    <% if current_user.admin || current_user.name == comment.commenter %><%= link_to 'Delete this comment', [comment.mer, comment], method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
+	  </div>
+	</div>
+<% end %>

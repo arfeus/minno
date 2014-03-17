@@ -1,0 +1,31 @@
+<%# navigation links %>
+<ul class="nav navbar-nav">
+<% if signed_in? %> 
+<li class="<%= 'active' if current_page?(new_mer_path) %>">
+	<%= link_to new_mer_path do %>
+	 <span class="glyphicon glyphicon-pencil"></span>idea
+  <% end %>
+</li>
+<li class="<%= 'active' if current_page?(root_path) %>">
+	<%= link_to root_path do %>
+	  <span class="glyphicon glyphicon-search"></span>Search
+  <% end %>	
+</li>
+<li class="<%= 'active' if current_page?(print_collection_path) %>">
+	<%= link_to print_collection_path do %>
+	  <span class="glyphicon glyphicon-th-list"></span>Collection
+	<% end %>	
+</li>
+	
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span><%= current_user.name  %> <b class="caret"></b></a>
+  <ul class="dropdown-menu">
+		<li class="<%= 'active' if current_page?(edit_user_path(current_user)) %>"><%= link_to "My settings", edit_user_path(current_user) %></li>
+		<li class="divider"></li>
+    <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to "All users", users_path %></li>
+    <li class="divider"></li>
+    <li class="<%= 'active' if current_page?(signout_path) %>"><%= link_to "Sign out", signout_path, method: "delete" %></li>
+  </ul>
+</li>
+<% end %>
+</ul>

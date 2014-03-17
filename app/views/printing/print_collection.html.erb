@@ -1,0 +1,14 @@
+<% provide(:title, 'Print all') %>
+<div class="container">
+	<h1>Showing ideas in collection</h1>
+	<br  />
+	<ul>
+	  <li><h3><%= link_to 'Empty collection', remove_collection_path  %></h3></li>
+	  <li><h3><%= link_to 'Email collection', collection_email_path  %></h3></li>
+  </ul>
+	<br  /> 
+	  <% @mers.each do |mer| %>
+		<% @mer = mer %>
+		<%= render 'mers/show_title' %> 
+	  <% end %>
+</div>

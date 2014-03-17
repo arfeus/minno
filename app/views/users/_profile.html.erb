@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="account-wall">
+    <%= form_for(@user, :html => { class: "form-signin"}) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <%= f.text_field :name, placeholder: "Name", class: "form-control", autofocus: true %>
+			<br  />
+      <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+      <label class="checkbox pull-left">
+        <%= f.check_box :admin %>
+        <%= f.label "Admin rights?" %>
+      </label>  
+      <br  />
+			<br  />
+      <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "form-control" %>
+      <br  />
+      <%= f.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+      <span class="clearfix"></span>
+   <% end %>
+  </div>
+</div>

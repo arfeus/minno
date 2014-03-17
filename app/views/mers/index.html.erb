@@ -1,0 +1,10 @@
+<% provide(:title, 'Ideas') %>
+<div class="container">
+	<%= render 'mers/search' %>
+	<br  />
+  <% @mers.each do |mer| %>
+	<% @mer = mer %>
+	<% @user = User.find(mer.user_id) %>
+	<%= render 'show_mer' %>			  
+  <% end %>
+</div>

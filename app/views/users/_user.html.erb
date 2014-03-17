@@ -1,0 +1,19 @@
+<li>
+  <%= link_to user.name, mers_user_path(user) %>
+  <% if user.admin %>
+    <%=  " is an admin " %>
+		<% else %>
+		<%= " is an user " %>
+
+  <% end %>
+  <% if current_user.admin? && !current_user?(user) %>
+    <% if !user.admin %>
+    | <%= link_to "admin_on", admin_on_path(user.id) %>
+	<% else %>
+	| <%= link_to "user_on", admin_off_path(user.id) %>
+	<% end %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>
+

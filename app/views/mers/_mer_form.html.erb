@@ -1,0 +1,18 @@
+<br  />
+<div class="panel panel-primary panel-form">
+		<div class="panel-body panel-primary">
+			<%= form_for(@mer, :html => { class: "form-mer"}) do |f| %>
+			   <%= render 'mer_error_messages' %>
+			   <%= f.label :"Idea:" %><br  />
+			   <%= f.text_area :title, class: "form-control" %><br  />
+			   <%= f.label :"Notes:" %>
+			   <br  />
+			   <%= f.text_area :text, class: "form-control" %><br  />
+			   <%= f.label :"Tags:" %><br  />
+			   <%= f.text_area :tag_list, class: "form-control" %><br  />
+				 <br  />
+			   <%= f.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+				 <span class="clearfix"></span>
+			<% end %>
+	</div>
+</div>

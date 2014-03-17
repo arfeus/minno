@@ -1,0 +1,10 @@
+<div class="panel panel-primary panel-form">
+		<div class="panel-body panel-primary">
+			<%= form_for([@mer, @comment], :html => { class: "form-comment"}) do |f| %>
+			    <%= f.label :Comment %><br />
+			    <%= f.text_area :body, value: @comment.body, class: "form-control" %>
+					<br />
+			    <%= f.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+      <% end %>
+	</div>
+</div>
